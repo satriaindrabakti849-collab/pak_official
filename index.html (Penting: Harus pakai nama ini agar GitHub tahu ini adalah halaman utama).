@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCI | Astronomy Science Community</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #fff;
+        }
+
+        /* Animasi Glow Background */
+        .glow {
+            position: fixed;
+            top: 50%; left: 50%;
+            width: 300px; height: 300px;
+            background: rgba(0, 212, 255, 0.2);
+            filter: blur(100px);
+            border-radius: 50%;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Container dengan Animasi Fade In */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 { font-family: 'Montserrat', sans-serif; font-size: 24px; margin-bottom: 5px; color: #00d4ff; }
+        .subtitle { font-size: 12px; letter-spacing: 1px; color: #bdc3c7; margin-bottom: 30px; }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            color: #fff;
+            outline: none;
+        }
+
+        input::placeholder { color: #ccc; }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #00d4ff;
+            border: none;
+            color: #000;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        button:hover { background: #0097bb; transform: scale(1.02); }
+
+        #introPage { display: none; max-width: 600px; }
+
+        .info-box {
+            background: rgba(0, 212, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 12px;
+            border-left: 4px solid #00d4ff;
+            text-align: left;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow"></div>
+
+    <div class="glass-card" id="loginBox">
+        <h1>𝐀𝐒𝐂𝐈</h1>
+        <div class="subtitle">Astronomy Science Community of Indonesia</div>
+        
+        <input type="text" id="user" placeholder="Username">
+        <input type="password" id="pass" placeholder="Password (Bebas)">
+        <button onclick="lanjut()">Akses Portal</button>
+    </div>
+
+    <div class="glass-card" id="introPage">
+        <h1>Formulir Introduksi</h1>
+        <p style="font-size: 13px; color: #bdc3c7;">Lengkapi data diri Anda untuk bergabung.</p>
+        
+        <input type="text" id="nama" placeholder="Nama Lengkap">
+        
+        <div style="display: flex; gap: 10px;">
+            <input type="number" id="umur" placeholder="Umur" style="flex: 1;">
+            <input type="date" id="tgl" style="flex: 2;">
+        </div>
+
+        <div style="display: flex; gap: 10px;">
+            <select id="jk" style="flex: 1;">
+                <option value="">Gender</option>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+            </select>
+            <input type="text" id="tk" placeholder="Akun TikTok" style="flex: 1;">
+        </div>
+
+        <input type="text" id="asal" placeholder="Asal Daerah">
+        <textarea id="alasan" rows="3" placeholder="Alasan bergabung..."></textarea>
+
+        <div class="info-box">
+            🛡️ <b>Security & AI Active:</b> Data dienkripsi secara ketat. Sistem AI kami akan melakukan verifikasi otomatis pada profil Anda.
+        </div>
+
+        <button onclick="gabung()" style="margin-top: 20px;">Verifikasi & Join Grup</button>
+    </div>
+
+    <script>
+        function lanjut() {
+            const u = document.getElementById('user').value;
+            const p = document.getElementById('pass').value;
+            if(u && p) {
+                document.getElementById('loginBox').style.display = 'none';
+                document.
